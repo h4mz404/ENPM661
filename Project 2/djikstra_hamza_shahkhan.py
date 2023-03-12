@@ -162,7 +162,7 @@ def animate_path(path,map_):
     print('Video File created')
 
 
-def animate_search(visited_nodes,parent_dict,map_):
+def animate_search(visited_nodes,map_):
     map_img = map_.copy()
     out = cv2.VideoWriter('search_animation.avi',cv2.VideoWriter_fourcc(*'MJPG'), 60, (map_img.shape[1],map_img.shape[0]))
     for node in visited_nodes:
@@ -180,11 +180,11 @@ def animate_djikstra(visited_nodes,path,map_):
     color = (255,0,0)
     path_color = (0,0,255)
     map_img = map_.copy()
-    #out = cv2.VideoWriter('djikstra_animation.avi',cv2.VideoWriter_fourcc(*'MJPG'), 60, (map_img.shape[1],map_img.shape[0]))
+    out = cv2.VideoWriter('djikstra_animation.avi',cv2.VideoWriter_fourcc(*'MJPG'), 60, (map_img.shape[1],map_img.shape[0]))
     for node in visited_nodes:
         f = cv2.circle(map_img,node,0,color,-1)
         f = cv2.flip(f,0)
-        #out.write(f)
+        out.write(f)
         cv2.imshow('Djikstra Search',f)
         cv2.waitKey(1)
     
@@ -193,11 +193,11 @@ def animate_djikstra(visited_nodes,path,map_):
         f = cv2.circle(map_img,path[-1],2,(0,255,0),-1)
         f = cv2.line(map_img,path[node],path[node+1],path_color,2)
         f = cv2.flip(f,0)
-        #out.write(f)
+        out.write(f)
         cv2.imshow('Djikstra Search',f)
         cv2.waitKey(1)
 
-    #out.release()
+    out.release()
     cv2.waitKey(0)
     cv2.destroyAllWindows()
     print('Video file created')
@@ -283,14 +283,5 @@ animate_path(f_path,canvas)
 
 # %%
 animate_djikstra(closedlist,f_path,canvas)
-
-# %%
-
-
-# %%
-len(f_path)
-
-# %%
-
 
 
