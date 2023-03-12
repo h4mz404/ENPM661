@@ -257,6 +257,7 @@ def djikstra(start_node,goal_node):
                         
 
 # %%
+#Takes user input
 while True:
     sn = (input("Enter start node (x,y) as 'x y': ").split())
     start_node = (int(sn[0]),int(sn[1]))
@@ -272,12 +273,15 @@ while True:
     print('Entered Goal node is: ', goal_node)
     break
 
+#runtime   
 start_time = time.time()
+#start algorithm
 f_path,closedlist = djikstra(start_node,goal_node)
 #animate_path(f_path,canvas)
 end_time = time.time()
 print('\nExecution Time: ', end_time - start_time, "seconds")
 animate_djikstra(closedlist,f_path,canvas)
+
 
 
 #Link to Github repo https://github.com/h4mz404/ENPM661/tree/main/Project%202
