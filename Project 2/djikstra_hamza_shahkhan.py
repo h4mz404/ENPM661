@@ -6,6 +6,7 @@ import heapq as hq
 import time
 
 # %%
+#Function to get points of hexagon
 def regularPoly(n,a,b,r):
     points = [(a,b+r)]
     theta = pi/2
@@ -58,7 +59,7 @@ if (25,25) in obstacle_space:
     print('dd')
 
 # %%
-#Functions to move key/0 in the 3x3 Matrix
+#Actionset functions
 def move_up(CurrentNode):
   i,j = CurrentNode
   Cost = 1
@@ -180,11 +181,11 @@ def animate_djikstra(visited_nodes,path,map_):
     color = (255,0,0)
     path_color = (0,0,255)
     map_img = map_.copy()
-    out = cv2.VideoWriter('djikstra_animation.avi',cv2.VideoWriter_fourcc(*'MJPG'), 60, (map_img.shape[1],map_img.shape[0]))
+    #out = cv2.VideoWriter('djikstra_animation.avi',cv2.VideoWriter_fourcc(*'MJPG'), 60, (map_img.shape[1],map_img.shape[0]))
     for node in visited_nodes:
         f = cv2.circle(map_img,node,0,color,-1)
         f = cv2.flip(f,0)
-        out.write(f)
+        #out.write(f)
         cv2.imshow('Djikstra Search',f)
         cv2.waitKey(1)
     
@@ -193,14 +194,14 @@ def animate_djikstra(visited_nodes,path,map_):
         f = cv2.circle(map_img,path[-1],2,(0,255,0),-1)
         f = cv2.line(map_img,path[node],path[node+1],path_color,2)
         f = cv2.flip(f,0)
-        out.write(f)
+        #out.write(f)
         cv2.imshow('Djikstra Search',f)
         cv2.waitKey(1)
 
-    out.release()
+    #out.release()
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-    print('\nVideo file created')
+    #print('\nVideo file created')
     
 
 
@@ -252,7 +253,7 @@ def djikstra(start_node,goal_node):
                             C2C[new_node] = temp_cost
 
     cv2.destroyAllWindows()
-    return path,closed_list,parent
+    return path,closed_list
                         
 
 # %%
@@ -272,10 +273,10 @@ while True:
     break
 
 start_time = time.time()
-f_path,closedlist,parents = djikstra(start_node,goal_node)
+f_path,closedlist = djikstra(start_node,goal_node)
 #animate_path(f_path,canvas)
 end_time = time.time()
-print('\nExecution Time: ', end_time - start_time, "s")
+print('\nExecution Time: ', end_time - start_time, "seconds")
 animate_djikstra(closedlist,f_path,canvas)
 
 
