@@ -43,9 +43,9 @@ bloat = regularPoly(6,300,125,81)
 cv2.fillPoly(canvas,[bloat],bcolor)
 cv2.fillPoly(canvas,[hex_pts],color)
 
-cv2.imshow('SS',canvas)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+#cv2.imshow('SS',canvas)
+#cv2.waitKey(0)
+#cv2.destroyAllWindows()
 
 map = canvas.copy()
 row, col,_ = map.shape
@@ -200,7 +200,7 @@ def animate_djikstra(visited_nodes,path,map_):
     out.release()
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-    print('Video file created')
+    print('\nVideo file created')
     
 
 
@@ -276,12 +276,6 @@ f_path,closedlist,parents = djikstra(start_node,goal_node)
 #animate_path(f_path,canvas)
 end_time = time.time()
 print('\nExecution Time: ', end_time - start_time, "s")
-#animate_djikstra(closedlist,f_path,canvas)
-
-# %%
-animate_path(f_path,canvas)
-
-# %%
 animate_djikstra(closedlist,f_path,canvas)
 
 
