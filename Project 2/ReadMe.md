@@ -21,3 +21,4 @@ The program will ask the user input for the start node and the goal node.
 Enter the nodes (x,y) in the format 'x y'
 
 The program generates a video file which visualizes the djikstra search algorithm.
+WARNING : The program takes more than 10-15 minutes if nodes are too far
