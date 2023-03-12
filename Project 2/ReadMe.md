@@ -14,7 +14,7 @@ INSTRUCTIONS TO RUN:
 
 In a terminal run,
 
-$ python3 proj_enpm661_hamza.py
+$ python3 djikstra_hamza_shahkhan.py
 
 The program will ask the user input for the start node and the goal node.
 
