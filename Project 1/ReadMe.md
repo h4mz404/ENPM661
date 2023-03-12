@@ -1,6 +1,7 @@
 ENPM-661
 Project 1
 Author: Hamza Shah Khan (UID: 119483152)
+
 After extracting the folder, run the below files in the terminal from the folder or in any IDE.
 
 Packages Required
